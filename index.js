@@ -1,16 +1,3 @@
-// const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-// //fisher-yates algorithm
-// function shuffle(array){
-//     for(let i = array.length - 1; i > 0; i--){
-//         const random = Math.floor(Math.random() * (i));
-//         [array[i], array[random]] = [array[random], array[i]]
-//     }
-// }
-// shuffle(cards)
-// console.log(cards)
-
-// The code above is for card randomization and shuffling
-
 console.log('hello world');
 
 let dealerSum = 0;
@@ -26,6 +13,8 @@ let canHit = true; // allows the player (you) to draw while yourSum <= 21
 
 window.onload = function() {
     buildDeck();
+    shuffleDeck(); //create the function 'shuffledeck' which will be defined on line 36 
+    starGame()
 };
 
 function buildDeck() {
@@ -41,5 +30,43 @@ function buildDeck() {
             deck.push(values[i] + "-" + types[j]); // This will allow the values to cycle through the types and create those combos, its like an array 
         }
     }
+   // console.log(deck);
+
+}// Randomization build will start below 
+
+function shuffleDeck() {
+    for (let i = 0; i < deck.length; i++) {
+        let j = Math.floor(Math.random() * deck.length);
+        let temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
     console.log(deck);
+}
+
+function startGame(){
+    hidden = deck.pop();
+    dealerSum += getValue(hidden);
+    dealerAceCount += checkAce();
+
+}
+
+function getValue(card) {
+    let data = car.split ('=');
+    let value = data[0];
+
+    if(isNaN(value)) { // A J Q K 
+        if (value =="A") {
+            return 11;
+        }
+        return 10;
+    }
+    return parseInt(value);
+}
+
+function checkAce(card){
+    if (card [0] =='A'){
+        return 1;
+    }
+    return 0;
 }
