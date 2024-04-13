@@ -14,7 +14,7 @@ let canHit = true; // allows the player (you) to draw while yourSum <= 21
 window.onload = function() {
     buildDeck();
     shuffleDeck(); //create the function 'shuffledeck' which will be defined on line 36 
-    starGame()
+    startGame()
 };
 
 function buildDeck() {
@@ -27,7 +27,7 @@ function buildDeck() {
     
     for (let i = 0; i < values.length; i++) {
         for (let j = 0; j < types.length; j++) {
-            deck.push(values[i] + "-" + types[j]); // This will allow the values to cycle through the types and create those combos, its like an array 
+            deck.push(values[j] + "-" + types[i]); // This will allow the values to cycle through the types and create those combos, its like an array 
         }
     }
    // console.log(deck);
@@ -41,22 +41,46 @@ function shuffleDeck() {
         deck[i] = deck[j];
         deck[j] = temp;
     }
-    console.log(deck);
+   
 }
 
 function startGame(){
     hidden = deck.pop();
     dealerSum += getValue(hidden);
-    dealerAceCount += checkAce();
+    dealerAceCount += checkAce(hidden);
+    // console.log(hidden);    this is for the dealers hidden cards 
+    // console.log(dealerSum); this is to check and see if the dealers card value changes when refreshing the site
+
+    while (dealerSum < 17){
+        let cardImg = document.createElement("img"); // created an image tag 
+        let card = deck.pop();   // this allows to get the card fromd deck 
+        cardImg.src = "./assets.cards/" + card + ".png" // this wil allow the program to select the card by seperating the titles and by file name
+        dealerSum += getValue(card);
+        dealerAceCount += checkAce(card);
+        document.getElementById("dealer-cards").append(cardImg);
+    }
+    console.log(dealerSum);
+// player cards
+    for (let i = 0; i < 2; i++) {
+        let cardImg = document.createElement("img"); 
+        let card = deck.pop();  
+        cardImg.src = "./assets.cards/" + card + ".png" 
+        yourSum += getValue(card);
+        yourAceCount += checkAce(card);
+        document.getElementById("your-cards").append(cardImg);
+    }
+    console.log(yourSum);
+    document.getElementById("hit").addEventListener("click", hit);
+    document.getElementById("stay").addEventListener("click", stay);
 
 }
 
 function getValue(card) {
-    let data = car.split ('=');
+    let data = card.split ('=');
     let value = data[0];
 
     if(isNaN(value)) { // A J Q K 
-        if (value =="A") {
+        if (value == "A") {
             return 11;
         }
         return 10;
