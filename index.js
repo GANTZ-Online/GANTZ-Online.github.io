@@ -1,4 +1,4 @@
-console.log('hello world');
+// console.log('hello world');
 
 let dealerSum = 0;
 let yourSum = 0;
@@ -27,7 +27,7 @@ function buildDeck() {
     
     for (let i = 0; i < values.length; i++) {
         for (let j = 0; j < types.length; j++) {
-            deck.push(values[j] + "-" + types[i]); // This will allow the values to cycle through the types and create those combos, its like an array 
+            deck.push(values[i] + "-" + types[j]); // This will allow the values to cycle through the types and create those combos, its like an array 
         }
     }
    // console.log(deck);
@@ -44,6 +44,18 @@ function shuffleDeck() {
    
 }
 
+// const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+// //fisher-yates algorithm
+// function shuffleDeck(array){
+//     for(let i = array.length - 1; i > 0; i--){
+//         const random = Math.floor(Math.random() * (i));
+
+//         [array[i], array[random]] = [array[random], array[i]]
+//     }
+// }
+// shuffle(cards)
+// console.log(cards)
+
 function startGame(){
     hidden = deck.pop();
     dealerSum += getValue(hidden);
@@ -54,7 +66,7 @@ function startGame(){
     while (dealerSum < 17){
         let cardImg = document.createElement("img"); // created an image tag 
         let card = deck.pop();   // this allows to get the card fromd deck 
-        cardImg.src = "./assets.cards/" + card + ".png" // this wil allow the program to select the card by seperating the titles and by file name
+        cardImg.src = "./cards/" + card + ".png" // this wil allow the program to select the card by seperating the titles and by file name
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
@@ -64,7 +76,7 @@ function startGame(){
     for (let i = 0; i < 2; i++) {
         let cardImg = document.createElement("img"); 
         let card = deck.pop();  
-        cardImg.src = "./assets.cards/" + card + ".png" 
+        cardImg.src = "./cards/" + card + ".png";
         yourSum += getValue(card);
         yourAceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
