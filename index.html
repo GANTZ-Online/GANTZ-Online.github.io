@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,26 +22,28 @@
             <li>Once all players have finished their turns, the dealer reveals their hidden card.</li>
             <li>The dealer must hit until their hand reaches at least 17.</li>
             <li>The player with a hand value closer to 21 than the dealer wins the round.</li>
-            <li>A hand totaling 21 with the first two cards (an Ace and a 10-value card) is called a "blackjack" and wins immediately, unless the dealer also has a blackjack, resulting in a tie.</li>
+            <li>A hand totaling 21 with the first two cards (an Ace and a 10-value card) is called a "blackjack" and
+                wins immediately, unless the dealer also has a blackjack, resulting in a tie.</li>
         </ol>
         <p>Ready to play? Click the "Hit" or "Stay" button below and refresh the page for a new hand!</p>
     </div>
 
-    <div id ='dealer-cards'>
+    <div id='dealer-cards'>
         <img src="cards/BACK.png">
         <img id="hidden" src="./cards/BACK.png">
     </div>
-    
-    <h2>Player: <span id='your-sum'></span></h2>
-         <script src="index.js"></script>   
 
-         <div id ='your-cards'></div>
+    <h2>Player: <span id='your-sum'></span></h2>
+
+    <div id='your-cards'></div>
 
     <br>
-    <button id ='hit'>hit</button>
-    <button id ='stay'>stay</button>
-    <button id="replay">Replay</button>
+    <button id='hit'>hit</button>
+    <button id='stay'>stay</button>
+    <button id="replay" onclick="replay()">Replay</button>
     <p id="results"></p>
 
+    <script src="index.js"></script>
 </body>
+
 </html>
