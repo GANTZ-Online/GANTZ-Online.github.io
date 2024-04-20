@@ -3,7 +3,7 @@ Nicholas-Mendoza-Milestone-Project
 ## Description
 
 The classic game of Blackjack aka 21. 
-I am very interested in creating the AI  Dealer and being able to write / code the randomization for the game.
+I am very interested in creating the AI Dealer and being able to write / code the randomization for the game.
 I think the challenge will be based on having the dealer to try and get as close to 21 as possible and knowing when it loses for going over 21. 
 I also chose this project because there are a lot of resources available that can assist me on this project since I feel like my skills are a bit behind 
 
@@ -35,7 +35,8 @@ Card Values: Cards 2 through 10 are worth their face value. Face cards (Jack, Qu
 
 Gameplay: The game begins with each player and the dealer receiving two cards. Players' cards are typically dealt face-up, while the dealer has one card face-up and one card face-down (the "hole" card).
 
-Player's Turn: Players decide whether to "hit" (receive another card) or "stand" (keep their current hand). Other options may include "double down" (double your bet and receive one more card) or "split" (if you have two cards of the same value, split them into two separate hands). The choice depends on the player's total hand value and the dealer's visible card.
+Player's Turn: Players decide whether to "hit" (receive another card) or "stay" (keep their current hand). 
+The choice depends on the player's total hand value and the dealer's visible card.
 
 Dealer's Turn: After all players have completed their hands, the dealer reveals their face-down card. The dealer must hit until their hand reaches a total of 17 or higher. If the dealer busts, all remaining players win.
 

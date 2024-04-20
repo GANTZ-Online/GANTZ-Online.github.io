@@ -8,7 +8,24 @@
 </head>
 
 <body>
+    <h1>Welcome to Blackjack!</h1>
     <h2>Dealer: <span id="dealer-sum"></span></h2>
+
+    <div id="instructions">
+        <h2>How to Play:</h2>
+        <p>The goal in Black Jack is to beat the dealer's hand without going over 21.</p>
+        <ol>
+            <li>The player and the dealer are dealt two cards. The dealer's second card is hidden.</li>
+            <li>Players take turns deciding to "hit" (receive another card) or "stay" (keep their current hand).</li>
+            <li>If a player's hand exceeds 21, they bust and lose the round.</li>
+            <li>Once all players have finished their turns, the dealer reveals their hidden card.</li>
+            <li>The dealer must hit until their hand reaches at least 17.</li>
+            <li>The player with a hand value closer to 21 than the dealer wins the round.</li>
+            <li>A hand totaling 21 with the first two cards (an Ace and a 10-value card) is called a "blackjack" and wins immediately, unless the dealer also has a blackjack, resulting in a tie.</li>
+        </ol>
+        <p>Ready to play? Click the "Hit" or "Stay" button below and refresh the page for a new hand!</p>
+    </div>
+
     <div id ='dealer-cards'>
         <img src="cards/BACK.png">
         <img id="hidden" src="./cards/BACK.png">
@@ -22,6 +39,7 @@
     <br>
     <button id ='hit'>hit</button>
     <button id ='stay'>stay</button>
+    <button id="replay">Replay</button>
     <p id="results"></p>
 
 </body>

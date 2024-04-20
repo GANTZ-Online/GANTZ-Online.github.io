@@ -153,3 +153,28 @@ function reduceAce(playerSum, playerAceCount) {
     }
     return playerSum;
 }
+
+function replay() {
+    // Reset all game variables
+    dealerSum = 0;
+    yourSum = 0;
+    dealerAceCount = 0;
+    yourAceCount = 0;
+    canHit = true;
+    deck = [];
+
+    // Clear dealer and player cards
+    document.getElementById("dealer-cards").innerHTML = "";
+    document.getElementById("your-cards").innerHTML = "";
+
+    // Clear results and hidden card
+    document.getElementById("results").innerText = "";
+    document.getElementById("dealer-sum").innerText = "";
+    document.getElementById("your-sum").innerText = "";
+    document.getElementById("hidden").src = "";
+
+    // Restart the game
+    buildDeck();
+    shuffleDeck();
+    startGame();
+}
