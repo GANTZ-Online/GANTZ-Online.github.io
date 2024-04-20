@@ -11,7 +11,7 @@ I also chose this project because there are a lot of resources available that ca
 
 ## Deployment
 
-The web game is deployed at __________________ (YOUR DEPLOYED GITHUB.IO URL).
+The web game is deployed at https://gantz-online.github.io/ (YOUR DEPLOYED GITHUB.IO URL).
 
 
 ## Game Logic

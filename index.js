@@ -11,7 +11,7 @@ let deck;
 
 let canHit = true; // allows the player (you) to draw while yourSum <= 21
 
-window.onload = function() {
+window.onload = function() {  // as soon as the game is loaded, the elements below will be visable
     buildDeck();
     shuffleDeck(); //create the function 'shuffledeck' which will be defined on line 36 
     startGame()
@@ -98,7 +98,7 @@ function hit (){
     yourAceCount += checkAce(card);
     document.getElementById("your-cards").append(cardImg);
 
-    if (reduceAce(yourSume,yourAceCount)>21 ) {
+    if (reduceAce(yourSum,yourAceCount)>21 ) {
         canHit = false;
     }
 
@@ -107,8 +107,10 @@ function hit (){
 function stay() {
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
+
     canHit = false;
-    document.getElementById("hidden").src= "./cards/" + hidden + ".png";
+    document.getElementById("hidden").src = "./cards/" + hidden + ".png";
+   
     let message = "";
     if (yourSum > 21) {
         message = "You Lose!";
@@ -127,7 +129,9 @@ function stay() {
     else if (yourSum < dealerSum) {
     message = "You Lose!";
     }
-    document.getElementByID("results").innerHTML = message;
+    document.getElementById("dealer-sum").innerText = dealerSum;
+    document.getElementById("your-sum").innerText = yourSum
+    document.getElementById("results").innerText = message;
 }
 
 
@@ -154,7 +158,7 @@ function checkAce(card){
 }
 
 function reduceAce(playerSum, playerAceCount) {
-    while (playerSum > 21 && pplayerAceCount > 0){
+    while (playerSum > 21 && playerAceCount > 0){
         playerSum -= 10;
         playerAceCount -= 1;
     }
